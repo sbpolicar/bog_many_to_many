@@ -1,0 +1,19 @@
+<h2>Creature List</h2>
+
+<%= link_to "&larr; Back".html_safe, root_path, class: "btn btn-primary margin-bottom" %>
+<%= link_to "New", new_creature_path, class: "btn btn-info pull-right margin-bottom" %>
+
+<% @creatures.each do |creature| %>
+<div class="well">
+  <h3><%= creature.name %></h3>
+  <p><%= creature.description %></p>
+  <%= link_to "", creature, method: :delete, class: 'btn btn-danger btn-sm glyphicon glyphicon-trash pull-right margin-left', data: {confirm: "Are you sure?"} %>
+  <%= link_to "", edit_creature_path(creature), class: 'btn btn-primary btn-sm glyphicon glyphicon-pencil pull-right margin-left' %>
+  <p><%= link_to "Permalink", creature %></p>
+  <p>
+  <% creature.tags.each do |tag| %>
+    <%= link_to "##{tag.name}", tag %>
+  <% end %>
+  </p>
+</div>
+<% end %>

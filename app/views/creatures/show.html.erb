@@ -1,0 +1,12 @@
+<%= link_to "&larr; Back".html_safe, creatures_path, class: "btn btn-primary" %>
+
+<h2><%= @creature.name %></h2>
+
+<div class="well">
+  <p><%= @creature.description %></p>
+  <ul>
+  <% @tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+  </ul>
+</div>
